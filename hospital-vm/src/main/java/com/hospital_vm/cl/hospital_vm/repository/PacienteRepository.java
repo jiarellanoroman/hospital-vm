@@ -6,12 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface PacienteRepository extends JpaRepository<Paciente, Long> {
     List<Paciente> findByApellidos(String apellidos);
 
-    Paciente findByCorreo(String correo);
+    Paciente findByCorreo(Integer id);
 
-    List<Paciente> findByNombresandApellidos(String nombres, String apellidos);
+    List<Paciente> findByNombresAndApellidos(String nombres, String apellidos); 
 
-    
+    void deleteById(Integer id);
 }
